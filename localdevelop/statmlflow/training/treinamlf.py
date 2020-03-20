@@ -26,6 +26,7 @@ if __name__ == "__main__":
     experimento = mlflow.get_experiment_by_name('Risco de Credito')
     if experimento is None:
         experimento = mlflow.create_experiment('Risco de Credito')
+        experimento = mlflow.get_experiment_by_name('Risco de Credito')
 
     # Cria o Classifier (modelo 1 com todas as colunas e parâmetros padrão do Sckit Learn)
     independentcols = ['renda', 'idade', 'etnia', 'sexo', 'casapropria', 'outrasrendas', 'estadocivil', 'escolaridade']
@@ -48,7 +49,7 @@ if __name__ == "__main__":
         mlflow.log_param("Inputs", independentcols)
 
         mlflow.log_metric("acuracia", clf_acuracia )
-        mlflow.log_metric("minha métrica customizada", 10 )
+        mlflow.log_metric("minha métrica customizada", 10)
 
         mlflow.sklearn.log_model(clf, "modelo_mlf")
 

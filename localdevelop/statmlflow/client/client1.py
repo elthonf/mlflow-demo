@@ -7,13 +7,13 @@ if __name__ == "__main__":
     # Carrega os dados
     mydf = pd.read_csv('../../../datasets/statistical/BaseUnknown03.csv')
 
-    mysample = mydf.sample(20).drop('nome', axis=1)
+    mysample = mydf.sample(60).drop('nome', axis=1)
     # Atenção! Verificar se o teu modelo possui a coluna etnia, caso contrário, também é necessário remover
     # com a instrução a seguir:
-    #mysample = mysample.sample(20).drop('etnia', axis=1)
+    mysample = mysample.drop('etnia', axis=1)
 
     # Prepara chamada
-    url = "http://127.0.0.1:1235/invocations" #Coloque aqui a porta escolhida
+    url = "http://127.0.0.1:1234/invocations" #Coloque aqui a porta escolhida
     headers = {'Content-Type': 'application/json'}
     conteudo = mysample.to_json( orient='split')
 
