@@ -10,7 +10,7 @@ if __name__ == "__main__":
     mysample = mydf.sample(60).drop('nome', axis=1)
     # Atenção! Verificar se o teu modelo possui a coluna etnia, caso contrário, também é necessário remover
     # com a instrução a seguir:
-    mysample = mysample.drop('etnia', axis=1)
+    #mysample = mysample.drop('etnia', axis=1)
 
     # Prepara chamada
     url = "http://127.0.0.1:1234/invocations" #Coloque aqui a porta escolhida
