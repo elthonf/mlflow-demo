@@ -42,11 +42,22 @@ Para servir o modelo, rodar (preferencialmente, escolha a porta 1234 pois o clie
 mlflow models serve -m <PATH-DO_MODELO> -p <PORTA>
 ```
 
-Exemplo (substitua o 2c3fa136d6cf485bbcd3209a689d9a21):
+Exemplo (substitua o 2c3fa136d6cf485bbcd3209a689d9a21 pelo ID do teu modelo):
 ```
 mlflow models serve -m localdevelop/statmlflow/training/mlruns/1/2c3fa136d6cf485bbcd3209a689d9a21/artifacts/modelo_mlf/ -p 1234
 ```
 
 ## Um exemplo de cliente para um modelo que estiver rodando:
 
-Estar no diretório "training".
+exemplo em:
+
+localdevelop/statmlflow/client/client1.py
+
+---
+## Exemplo via Docker (após aula sobre containers)
+
+### Criação de uma imagem docker
+mlflow models build-docker -m localdevelop/statmlflow/training/mlruns/1/2c3fa136d6cf485bbcd3209a689d9a21/artifacts/modelo_mlf/ -n "img_mlflow_credito"
+
+Execução do container
+docker run -p 5001:8080 "img_mlflow_credito"
